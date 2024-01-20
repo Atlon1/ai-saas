@@ -23,6 +23,7 @@ import {formSchema} from "./constants";
 import {UserAvatar} from "@/components/user-avatar";
 import {BotAvatar} from "@/components/bot-avatar";
 
+
 const ConversationPage = () => {
     const router = useRouter();
     const [messages, setMessages] = useState<ChatCompletionRequestMessage[]>([]);
