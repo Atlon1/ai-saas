@@ -1,6 +1,6 @@
-import { auth } from "@clerk/nextjs";
-import { NextResponse } from "next/server";
-import { Configuration, OpenAIApi } from "openai";
+import {auth} from "@clerk/nextjs";
+import {NextResponse} from "next/server";
+import {Configuration, OpenAIApi} from "openai";
 
 import {increaseApiLimit, checkApiLimit} from "@/lib/api-limit";
 
@@ -14,27 +14,27 @@ export async function POST(
     req: Request
 ) {
     try {
-        const { userId } = auth();
+        const {userId} = auth();
         const body = await req.json();
-        const { messages  } = body;
+        const {messages} = body;
 
         if (!userId) {
-            return new NextResponse("Unauthorized", { status: 401 });
+            return new NextResponse("Unauthorized", {status: 401});
         }
 
         if (!configuration.apiKey) {
-            return new NextResponse("OpenAI API Key not configured.", { status: 500 });
+            return new NextResponse("OpenAI API Key not configured.", {status: 500});
         }
 
         if (!messages) {
-            return new NextResponse("Messages are required", { status: 400 });
+            return new NextResponse("Messages are required", {status: 400});
         }
 
         const freeTrial = await checkApiLimit();
 
-        if (!freeTrial){
+        if (!freeTrial) {
             return new NextResponse("Your free trial has expired. Please try again later.",
-                { status: 403 });
+                {status: 403});
         }
 
 
@@ -48,6 +48,6 @@ export async function POST(
         return NextResponse.json(response.data.choices[0].message);
     } catch (error) {
         console.log('[CONVERSATION_ERROR]', error);
-        return new NextResponse("Internal Error", { status: 500 });
+        return new NextResponse("Internal Error", {status: 500});
     }
 };
