@@ -6,6 +6,7 @@ import {MAX_FREE_COUNTS} from "@/constants";
 import {Progress} from "@/components/ui/progress";
 import {Button} from "@/components/ui/button";
 import {Zap} from "lucide-react";
+import {useProModal} from "@/hooks/use-pro-modal";
 
 interface SidebarProps {
     apiLimitCount: number
@@ -14,7 +15,7 @@ interface SidebarProps {
 export const FreeCounter = ({apiLimitCount = 0}: SidebarProps) => {
 
     const [mounted, setMounted] = useState(false)
-
+    const proModal = useProModal()
     useEffect(() => {
         setMounted(true)
     }, [])
@@ -35,6 +36,7 @@ export const FreeCounter = ({apiLimitCount = 0}: SidebarProps) => {
 
                         </Progress>
                         <Button
+                            onClick={proModal.onOpen}
                             variant='premium'
                             className='w-full'>
                             Upgrade
