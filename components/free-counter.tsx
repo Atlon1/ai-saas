@@ -10,9 +10,10 @@ import {useProModal} from "@/hooks/use-pro-modal";
 
 interface SidebarProps {
     apiLimitCount: number
+    isPro: boolean | null
 }
 
-export const FreeCounter = ({apiLimitCount = 0}: SidebarProps) => {
+export const FreeCounter = ({apiLimitCount = 0, isPro = false}: SidebarProps) => {
 
     const [mounted, setMounted] = useState(false)
     const proModal = useProModal()
@@ -21,6 +22,10 @@ export const FreeCounter = ({apiLimitCount = 0}: SidebarProps) => {
     }, [])
 
     if (!mounted) return null
+
+    if (isPro) {
+        return null
+    }
 
     return (
         <div className='px-3'>
