@@ -49,10 +49,11 @@ const ConversationPage = () => {
 
             form.reset();
         } catch (error: any) {
-            if (error?.response?.status=== 403){
+            if (error?.response?.status === 403) {
                 proModal.onOpen()
+            } else {
+                toast.error("Something went wrong. Please try again later.");
             }
-            console.log(error);
         } finally {
             router.refresh();
         }

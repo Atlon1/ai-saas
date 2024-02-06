@@ -53,7 +53,9 @@ const CodePage = () => {
             if (error?.response?.status=== 403){
                 proModal.onOpen()
             }
-            console.log(error);
+            else {
+                toast.error("Something went wrong. Please try again later.");
+            }
         } finally {
             router.refresh();
         }
