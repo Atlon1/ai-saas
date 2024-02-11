@@ -98,7 +98,7 @@ const Sidebar = ({apiLimitCount = 0, isPro = false }: SidebarProps) => {
                     ))}
                 </div>
             </div>
-            <Link href="https://github.com/Atlon0">
+            <Link href="https://github.com/Atlon1">
                 <div className='relative h-9 w-[200px] mr-4'>
                     <Image
                         fill
