@@ -31,6 +31,12 @@ export const LandingNavbar = () => {
                     Genius
                 </h1>
             </Link>
+            <div className='relative h-10 w-[250px]'>
+                <Image
+                    fill
+                    src='/Maciej_logo.png'
+                    alt="Logo"/>
+            </div>
             <div className='flex items-center gap-x-2'>
                 <Link href={isSignedIn ? '/dashboard' : 'sign-up'}>
                     <Button

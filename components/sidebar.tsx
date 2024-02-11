@@ -82,6 +82,7 @@ const Sidebar = ({apiLimitCount = 0, isPro = false }: SidebarProps) => {
                         Genius
                     </h1>
                 </Link>
+
                 <div className='space-y-1'>
                     {routes.map((route) => (
                         <Link
@@ -97,6 +98,15 @@ const Sidebar = ({apiLimitCount = 0, isPro = false }: SidebarProps) => {
                     ))}
                 </div>
             </div>
+            <Link href="https://github.com/Atlon0">
+                <div className='relative h-9 w-[200px] mr-4'>
+                    <Image
+                        fill
+                        alt="Logo"
+                        src="/Maciej_logo.png"
+                    />
+                </div>
+            </Link>
             <FreeCounter
                 isPro={isPro}
                 apiLimitCount={apiLimitCount}
